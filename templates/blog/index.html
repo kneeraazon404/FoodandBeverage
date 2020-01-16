@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+
+{% load static%}
+
+{% block title %}
+|Home
+{% endblock%}
+
+{% block content%}
+
+<!-- carousel -->
+
+{%include "partials/_carousel.html"%}
+
+<!-- Listings -->
+
+<section id="listings" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-3">Latest Releases</h3>
+    <div class="row">
+      {%if posts %}
+      <!--  -->
+      {%for Post in posts %}
+
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card listing-preview">
+          <img class="card-img-top" src="{{Post.photo_main.url}}" alt="" />
+
+          <div class="card-body">
+            <div class="listing-heading text-center">
+              <h4 class="text-primary">{{Post.title}}</h4>
+              <p>
+                <i class=" text-secondary"></i> {{post.title}}
+              </p>
+            </div>
+            <hr />
+
+            <div class="row py-2 text-secondary">
+
+              <div class="col-12"> {{Post.description}}</div>
+            </div>
+
+            <hr />
+
+            <a href="{% url 'post' Post.id%}" class="btn btn-primary btn-block">More Info</a>
+          </div>
+        </div>
+      </div>
+      {%endfor %}
+
+      <!--  -->
+      {% else %}
+      <div class="col-md-12">
+        <p>No posts avilable</p>
+      </div>
+      <!--  -->
+      {%endif%}
+    </div>
+  </div>
+
+</section>
+
+{% endblock%}

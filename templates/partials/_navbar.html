@@ -1,0 +1,42 @@
+<!--  -->
+{% load static %}
+<!--  -->
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" src="static/img/logo.png" href="{% url 'home'%}">
+      Logo
+    </a>
+    <!-- static/img/logo.png -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li {% if "/" == request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3" {% endif %}>
+          <a class="nav-link" href="{%url 'home'%}">Home</a>
+        </li>
+        <li {% if "about" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
+          {% endif %}>
+          <a class="nav-link" href="{%url 'about'%}">About</a>
+        </li>
+
+        <li {% if "posts" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
+          {% endif %}>
+          <a class="nav-link" href="{%url 'posts'%}">Latest Releases</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li {% if "contributions" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
+          {% endif %}>
+          <a class="nav-link" href="#"> Contribute</a>
+        </li>
+        <li {% if "message" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
+          {% endif %}>
+          <a class="nav-link" href="{% url 'contact' %}"> Message</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
