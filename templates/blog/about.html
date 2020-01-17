@@ -98,6 +98,7 @@
 <section id="team" class="py-5">
   <div class="container">
     <h2 class="text-center">Our Team</h2>
+    <hr>
     <div class="row text-center">
       {% if teams %}
       {%for Team in teams%}
@@ -110,7 +111,7 @@
         </p>
         <hr />
         <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
-        <p><i class="fas fa-envelope-open"></i> {{Team.phone}}</p>
+        <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
       </div>
       {% endfor %}
       {% else %}
