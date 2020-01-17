@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.core.paginator import Paginator
 import request
@@ -18,7 +18,9 @@ def posts(request):
 
 
 def post(request, post_id):
-    return render(request, "posts/post.html")
+    post = get_object_or_404(Post, pk=post_id)
+    context = {"post": post}
+    return render(request, "posts/post.html", context)
 
 
 def search(request):
