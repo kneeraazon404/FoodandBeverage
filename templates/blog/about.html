@@ -44,7 +44,7 @@
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
           pariatur!
         </p>
-        <img src="static/img/kkk.jpg" alt="" />
+        <img src="static/img/first.jpg" alt="" />
         <p class="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
           esse officia repudiandae ad saepe ex, amet neque quod accusamus rem
@@ -99,37 +99,26 @@
   <div class="container">
     <h2 class="text-center">Our Team</h2>
     <div class="row text-center">
+      {% if teams %}
+      {%for Team in teams%}
       <div class="col-md-4">
-        <img src="static/img/nirajan.jpg" alt="" class="rounded-circle mb-3" />
-        <h4>Nirajan Karki</h4>
+
+        <img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
+        <h4>{{Team.name}}</h4>
         <p class="text-success">
-          <i class="fas fa-chief text-success mb-3"></i> Business Partner
+          <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
         </p>
         <hr />
-        <p><i class="fas fa-phone"></i> (+977)-9844395719</p>
-        <p><i class="fas fa-envelope-open"></i> karkinirajan@gmail.com</p>
+        <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
+        <p><i class="fas fa-envelope-open"></i> {{Team.phone}}</p>
       </div>
+      {% endfor %}
+      {% else %}
+      <div class="col-md-12">
+        <p>No team members avilable</p>
+      </div>
+      {% endif %}
 
-      <div class="col-md-4">
-        <img src="static/img/pradip.jpg" alt="" class="rounded-circle mb-3" />
-        <h4>Pradip Karki</h4>
-        <p class="text-success"> Head Chief
-          <i class="fas fa-award text-success mb-3"></i>
-        </p>
-        <hr />
-        <p><i class="fas fa-phone"></i> (+977)-9849760428</p>
-        <p><i class="fas fa-envelope-open"></i> karkipradip@gmail.com</p>
-      </div>
-
-      <div class="col-md-4">
-        <img src="static/img/nabaraj.jpg" alt="" class="rounded-circle mb-3" />
-        <h4>Nabaraj Karki</h4>
-        <p class="text-success">
-          <i class="fas fa-award text-success mb-3"></i> Promotion Partner
-          <hr />
-          <p><i class="fas fa-phone"></i> (+977)-9843752923</p>
-          <p><i class="fas fa-envelope-open"></i> nabarajkarki@gmail.com</p>
-      </div>
     </div>
   </div>
 </section>

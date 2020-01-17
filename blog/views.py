@@ -10,5 +10,7 @@ def index(request):
 
 
 def about(request):
-    return render(request, "blog/about.html")
+    teams = Team.objects.order_by("-hire_date")
+    context = {"teams": teams}
+    return render(request, "blog/about.html", context)
 
