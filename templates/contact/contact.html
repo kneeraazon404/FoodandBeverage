@@ -1,12 +1,42 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
-|Contact
-{% endblock %}
-{%load static %}
-
+| Contact
+{% endblock%}
 {% block content %}
-<h1>Here goes the contact form</h1>
+<div class="row text-center">
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <img class="card-img-top" src="{% static 'img/first.jpg'%}" alt="Seller of the month">
+            <div class="card-body">
+                <h5 class="card-title">Property Realtor</h5>
+                <h6 class="text-secondary">Kyle Brown</h6>
+            </div>
+        </div>
+        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Contact</button>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <img class="card-img-top" src="{% static 'img/first.jpg'%}" class="rounded-circle mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Property Realtor</h5>
+                <h6 class="text-secondary">Kyle Brown</h6>
+            </div>
+        </div>
+        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Contact</button>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <img class="card-img-top" src="{% static 'img/first.jpg'%}" alt="Seller of the month">
+            <div class="card-body">
+                <h5 class="card-title">Property Realtor</h5>
+                <h6 class="text-secondary">Kyle Brown</h6>
+            </div>
+        </div>
+        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Contact</button>
+    </div>
+</div>
+{%include "partials/_message.html"%}
 <!-- Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" role="dialog">
     <div class="modal-dialog">
