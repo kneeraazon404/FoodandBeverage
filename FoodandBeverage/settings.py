@@ -71,16 +71,6 @@ WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "foodandbeverage_db",
-        "USER": "postgres",
-        "PASSWORD": "karki582465",
-        "HOST": "localhost",
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -127,12 +117,6 @@ from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {messages.ERROR: "danger"}
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "karkinirajan1999@gmail.com"
-EMAIL_HOST_PASSWORD = "karki582465@#$%"
 
 try:
     from .local_settings import *
