@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Post
-from django.core.paginator import Paginator
-import request
 import re
 from django import template
-from django.conf import settings
+from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404, render
+
+from .models import Post
 
 register = template.Library()
 
