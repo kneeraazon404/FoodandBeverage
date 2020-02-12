@@ -51,6 +51,7 @@ share/python-wheels/
 *.egg
 .vscode
 .gitignore
+settings.py
 MANIFEST
 
 # PyInstaller
