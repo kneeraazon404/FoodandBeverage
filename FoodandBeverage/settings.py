@@ -82,9 +82,9 @@ WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "foodandbeverage_db",
-        "USER": "postgres",
-        "PASSWORD": "karki582465",
+        "NAME": "foodandbeverage",
+        "USER": "kneeraazon",
+        "PASSWORD": "foodandbeverage582465",
         "HOST": "localhost",
     }
 }
