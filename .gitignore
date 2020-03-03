@@ -14,7 +14,7 @@ media
 /media
 /staticfiles
 /static
-
+.gitignore
 media
 staticfiles
 static
