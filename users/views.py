@@ -59,4 +59,3 @@ def login(request):
 
 def logout(request):
     return redirect("home")
-
