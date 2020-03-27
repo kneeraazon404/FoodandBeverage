@@ -1,43 +1,41 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends 'base.html'%}
+
+{% load static%}
+
 {% block title %}
 | Contact
 {% endblock%}
-{% block content %}
-<div class="row text-center col-md-12">
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <p>for this contact him</p>
-            <img class="card-img-top" src="{% static 'img/nirajan.jpg'%}" class="rounded-circle mb-3"
-                alt="Seller of the month">
-            <div class="card-body">
-                <h5 class="card-title">Property Realtor</h5>
-                <h6 class="text-secondary">Kyle Brown</h6>
+
+{% block content%}
+
+<section id="team" class="py-5">
+    <div class="container">
+        <h2 class="text-center">Our Team</h2>
+        <hr>
+        <div class="row text-center">
+            {% if teams %}
+            {%for Team in teams%}
+            <div class="col-md-4">
+
+                <img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
+                <h4>{{Team.name}}</h4>
+                <p class="text-success">
+                    <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
+                </p>
+                <hr />
+                <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
+                <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
             </div>
-        </div>
-        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Contact</button>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <img class="card-img-top" src="{% static 'img/nirajan.jpg'%}" class="rounded-circle mb-3">
-            <div class="card-body">
-                <h5 class="card-title">Property Realtor</h5>
-                <h6 class="text-secondary">Kyle Brown</h6>
+            {% endfor %}
+            {% else %}
+            <div class="col-md-12">
+                <p>No team members avilable</p>
             </div>
+            {% endif %}
+
         </div>
-        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Contact</button>
     </div>
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <img class="card-img-top" src="{% static 'img/nirajan.jpg'%}" alt="Seller of the month">
-            <div class="card-body">
-                <h5 class="card-title">Property Realtor</h5>
-                <h6 class="text-secondary">Kyle Brown</h6>
-            </div>
-        </div>
-        <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Contact</button>
-    </div>
-</div>
+</section>
 {%include "partials/_message.html"%}
 <!-- Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" role="dialog">

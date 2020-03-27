@@ -72,8 +72,8 @@ WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fooddb",
-        "USER": "foodadmin",
+        "NAME": "food_db",
+        "USER": "pradip",
         "PASSWORD": "karki582465",
         "HOST": "localhost",
     }
@@ -106,17 +106,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "FoodandBeverage/static")]
 
-
-# media folder settings
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
