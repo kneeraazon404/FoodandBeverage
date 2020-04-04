@@ -42,8 +42,7 @@ Pillow==7.0.0
 pio==0.0.3
 pluggy==0.13.1
 post==2019.4.13
-psycopg2==2.8.4
-psycopg2-binary==2.7.5
+
 public==2019.4.13
 py==1.8.1
 pylint==2.4.4
