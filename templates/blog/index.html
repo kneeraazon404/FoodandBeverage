@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-
+{% load embed_video_tags %}
 {% load static%}
 
 {% block title %}
@@ -27,7 +27,11 @@
 
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
-          <img class="card-img-top" src="{{Post.photo_main.url}}" alt="" />
+          <div class="embed-responsive embed-responsive-16by9">
+            {% video Post.video as my %}
+            <iframe class="embed-responsive-item" src="{{ my.url }}"></iframe>
+            {% endvideo %}
+          </div>
 
           <div class="card-body">
             <div class="listing-heading text-center">
