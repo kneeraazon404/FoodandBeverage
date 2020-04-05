@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load embed_video_tags %}
 {% load static %}
 
 
@@ -44,9 +45,11 @@
         <a href="{% url 'posts'%}" class="btn btn-light mb-4">Back To Latest Releases</a>
         <div class="row">
             <div class="col-md-8">
-                <!-- Home Main Image -->
-                <img src="{{post.photo_main.url}}" alt="this is image related to the post"
-                    class="img-main img-fluid mb-3">
+                <div class="embed-responsive embed-responsive-16by9">
+                    {% video post.video as my %}
+                    <iframe class="embed-responsive-item" src="{{ my.url }}"></iframe>
+                    {% endvideo %}
+                  </div>
 
                 <!-- Description -->
                 <div class="row mb-5">

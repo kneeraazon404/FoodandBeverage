@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "embed_video",
 ]
 
 MIDDLEWARE = [
@@ -58,8 +59,8 @@ WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "food_db",
-        "USER": "pradip",
+        "NAME": "finalfooddb",
+        "USER": "postgres",
         "PASSWORD": "karki582465",
         "HOST": "localhost",
     }

@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-
+{% load embed_video_tags %}
 {% load static %}
 
 
@@ -48,8 +48,13 @@
       <!-- Listing 1 -->
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card listing-preview">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NwNuQulK6N0" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="embed-responsive embed-responsive-16by9">
+            {% video Post.video as my %}
+            <iframe class="embed-responsive-item" src="{{ my.url }}"></iframe>
+          </div>
+         
+      {% endvideo %}
+    </div>
           <img class="card-img-top" src="" alt="" />
 
           <div class="card-body">
@@ -122,3 +127,7 @@
   </div>
 </section>
 {% endblock%}
+
+
+
+  

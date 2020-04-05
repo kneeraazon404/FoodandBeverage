@@ -1,14 +1,11 @@
 from django.db import models
 from datetime import datetime
-import re
+from embed_video.fields import EmbedVideoField
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    videoUrl = "https://www.youtube.com/watch?v=X3iFhLdWjqc"
-    embedUrl = re.sub(
-        r"(?ism).*?=(.*?)$", r"https://www.youtube.com/embed/\1", videoUrl
-    )
+    video = EmbedVideoField(max_length=140, default="SOME STRING")
     description = models.TextField(blank=True)
     post_date = models.DateTimeField(default=datetime.now, blank=True)
 
