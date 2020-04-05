@@ -13,4 +13,3 @@ def about(request):
     teams = Team.objects.order_by("-hire_date")
     context = {"teams": teams}
     return render(request, "blog/about.html", context)
-

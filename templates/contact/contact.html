@@ -8,34 +8,36 @@
 
 {% block content%}
 
+
+<!-- Team -->
 <section id="team" class="py-5">
     <div class="container">
-        <h2 class="text-center">Our Team</h2>
-        <hr>
-        <div class="row text-center">
-            {% if teams %}
-            {%for Team in teams%}
-            <div class="col-md-4">
-
-                <img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
-                <h4>{{Team.name}}</h4>
-                <p class="text-success">
-                    <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
-                </p>
-                <hr />
-                <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
-                <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
-            </div>
-            {% endfor %}
-            {% else %}
-            <div class="col-md-12">
-                <p>No team members avilable</p>
-            </div>
-            {% endif %}
-
+      <h2 class="text-center">Our Team</h2>
+      <hr>
+      <div class="row text-center">
+        {% if teams %}
+        {%for Team in teams%}
+        <div class="col-md-4">
+  
+          <img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
+          <h4>{{Team.name}}</h4>
+          <p class="text-success">
+            <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
+          </p>
+          <hr />
+          <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
+          <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
         </div>
+        {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+          <p>No team members avilable</p>
+        </div>
+        {% endif %}
+  
+      </div>
     </div>
-</section>
+  </section>
 {%include "partials/_message.html"%}
 <!-- Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" role="dialog">
