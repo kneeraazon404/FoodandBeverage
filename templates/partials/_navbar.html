@@ -2,7 +2,7 @@
 {% load static %}
 <!--  -->
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container">
     <a class="navbar-brand" src="{% static 'img/logo.png' %}" href="{% url 'home'%}">
       F&B
@@ -23,19 +23,19 @@
 
         <li {% if "posts" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
           {% endif %}>
-          <a class="nav-link" href="{%url 'posts'%}">Latest Releases</a>
+          <a class="nav-link" href="{%url 'posts'%}">Recipes</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
 
-        <li {% if "message" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
+        <li {% if "contact" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
           {% endif %}>
           <a class="nav-link" href="{% url 'contact' %}">Contact</a>
         </li>
         <li {% if "contribution" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
           {% endif %}>
-          <a class="nav-link" href="{% url 'contribution'%}">contribution</a>
+          <a class="nav-link" href="{%url 'contribution'%}">contribution</a>
         </li>
 
       </ul>
