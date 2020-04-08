@@ -94,10 +94,10 @@
                     {% else %}
                     <input type="hidden" name="user_id" value="0">
                     {% endif %}
-                    <input type="hidden" name="team_email" value="{{ post.realtor.email }}">
+                    <input type="hidden" name="team_email" value="{{ post.Team.email }}">
                     <input type="hidden" name="post_id" value="{{ post.id }}">
                     <div class="form-group">
-                        <label for="property_name" class="col-form-label">Property:</label>
+                        <label for="Title" class="col-form-label">Recipe</label>
                         <input type="text" name="post" class="form-control" value="{{ post.title }}">
                     </div>
                     <div class="form-group">
