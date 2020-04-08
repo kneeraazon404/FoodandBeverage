@@ -18,7 +18,8 @@
 
 <section id="listings" class="py-5">
   <div class="container">
-    <h3 class="text-center mb-3">Latest Releases</h3>
+    <h3 class="text-center mb-3">Our Latest Recipes</h3>
+    <hr>
     <div class="row">
       {%if posts %}
       <!--  -->
@@ -29,7 +30,7 @@
         <div class="card listing-preview">
           <div class="embed-responsive embed-responsive-16by9">
             {% video Post.video as my %}
-            <iframe class="embed-responsive-item" src="{{ my.url }}"></iframe>
+            <iframe class="embed-responsive-item mt-1 ml-1 mr-1" src="{{ my.url }}"></iframe>
             {% endvideo %}
           </div>
 
@@ -37,19 +38,20 @@
             <div class="listing-heading text-center">
               <h4 class="text-primary">{{Post.title}}</h4>
               <p>
-                <i class=" text-secondary"></i> {{post.title}}
+                <i class=" text-primary"></i> {{post.title}}
               </p>
             </div>
+     
+            <hr>
+
+            <!-- <div class="row py-2 text-dark text-justify">
+
+              <div class="col-12">{{Post.description}} </div>
+            </div> -->
+
             <hr />
 
-            <div class="row py-2 text-secondary">
-
-              <div class="col-12"> {{Post.description}}</div>
-            </div>
-
-            <hr />
-
-            <a href="{% url 'post' Post.id%}" class="btn btn-primary btn-block">More Info</a>
+            <a href="{% url 'post' Post.id%}" class="btn btn-dark btn-block">More Info</a>
           </div>
         </div>
       </div>

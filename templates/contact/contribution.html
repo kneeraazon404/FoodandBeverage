@@ -1,14 +1,38 @@
 {% extends "base.html" %}
 {% load static%}
 {% block content %}
+
+<section id="showcase-inner " class="py-5  bg-dark text-light">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-5"></i>You can help us grow this chennel by doing the following</i></h1>
+          <p class="lead">Too lazy to cook, yet crave the most
+              delicious food?
+              we know how you feel, so here are the awesome receipes on various items, just go through them and eat
+              awesome food items at your home made by you own hands
+            </i></p>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
 <div class="container" >
     <div class="row">
+        <div class="col-md-8">
+            <h1 class="display-4">This is how you can help us</h1>
+            <hr>
+            <h5 class="text-justify mr-1 ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt et repudiandae accusantium sit temporibus earum unde omnis quibusdam rem iste odit ut mollitia debitis, quae ducimus architecto harum nemo officiis veritatis! Mollitia nemo enim a, distinctio repellat excepturi sapiente quas dolorum ad possimus iste vel illum minima assumenda odit aut.</h5>
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="card mb-3">
     <form action="https://uat.esewa.com.np/epay/main" method="POST">
  <div>
-<h1>Make payment Using Esewa</h1>
+<h5 class="text-center text-bold mr-1 ml">Make Conntribution through Esewa</h5>
 <hr>
-     <i><h3>Amount </h3></i>
-    <input value="100" name="tAmt" type="">
+     <h6 class="text-center text-dark mr-1 ml">Amount </h6>
+    <input class=" text-dark mr-1 ml-5" value="100" name="tAmt" type="">
 </div>
 <div>
     <h3> </h3>
@@ -27,8 +51,8 @@
     <input value="3" name="pdc" type="hidden">
 </div>
 <div>
-    <i><h3>Payment type </h3></i>
-    <input value="epay_payment" name="scd" type="">
+    <h6 class="text-center text-dark mr-1 ml"> Payment type </h6></<h5>
+    <input class=" text-dark mr-1 ml-5 mb-2 "  value=" esewa payment" name="scd" type="">
 </div>
 <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
 <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
@@ -36,7 +60,7 @@
 
 
 <div>
-    <input class="btn btn-dark btn-dark" value="Submit" type="submit">
+    <input class="btn btn-dark btn-block" value="Submit" type="submit">
 </div>
 
 
@@ -46,12 +70,23 @@
     
    
     </form>
+    
+</div> 
 </div>
-<div class="container">
-    <div class="row">
-        <h1>This is where we wwill</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iste ut eaque quas voluptate magni quisquam dignissimos repellendus minus modi maxime tempora expedita vel adipisci, pariatur autem nihil velit quod eveniet aspernatur sint eligendi assumenda. Odio, ea sapiente debitis similique deserunt ex voluptate reprehenderit voluptas veritatis pariatur iusto doloremque soluta, asperiores vel earum, aliquam voluptatem? Quisquam, exercitationem asperiores sed quidem placeat hic eveniet quos, quaerat aliquid sit magnam. Sed quam incidunt asperiores necessitatibus accusantium, ut tenetur consectetur dignissimos quaerat sint consequuntur quas aspernatur aut, iste sapiente repellendus, ipsam quod? Aliquid id enim, quis illum eius atque eaque dicta? Doloribus dolore dolorum maxime aut temporibus, dignissimos deleniti voluptatum, aliquam veritatis iusto, vero amet accusantium rem facere deserunt. Consequatur nulla omnis perferendis assumenda voluptates, rerum quod incidunt esse fuga. Quo eius suscipit possimus vitae cum laboriosam accusantium itaque, deserunt inventore numquam nam perspiciatis nisi, cumque nobis, sequi atque earum! Maxime quibusdam, officiis laudantium, deleniti numquam vel dicta architecto fugit repudiandae repellat consectetur ad at exercitationem incidunt molestiae labore a laborum voluptatem alias? Doloribus maiores explicabo reprehenderit illum voluptatum asperiores vero. Magni inventore velit incidunt consequatur dolore, similique explicabo necessitatibus sit debitis excepturi! Accusamus reprehenderit laborum soluta saepe at minima aperiam quo dignissimos?</p>
     </div>
+    
 </div>
-</div>
+<section id="work" class="bg-dark text-light text-center mb-5">
+    <h2 class="display-5 text-bold">If someone tells you to stop eating,
+         Eat them too :) </h2>
+    <hr>
+    <h5 class="lead">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
+      aperiam, unde aliquid at similique!
+    </h5>
+    <hr>
+
+    <a href="{% url 'posts' %}" class="btn btn-info text-white btn-lg ">View Our Latest Recipes</a>
+  </section>
+
 {% endblock%}

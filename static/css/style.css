@@ -1,5 +1,5 @@
 .btn-secondary {
-	color: rgb(48, 44, 44) !important;
+	color: rgb(39, 38, 38) !important;
 }
 
 img {
@@ -8,12 +8,13 @@ img {
 
 .logo {
 	width: 100px;
+	height: 20px;
 }
 
 .navbar {
 	background-color: rgb(0, 0, 0);
 	opacity: 1;
-	text-transform: lowercase;
+	text-transform: uppercase;
 }
 
 .social a {

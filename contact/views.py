@@ -11,7 +11,26 @@ def Contact(request):
     return render(request, "contact/contact.html", context)
     
 
+ # if request.method=="POST":
+        # # post_id=request.POST["post_id"]
+        # # post=request.POST["post"]
+        # name=request.POST["name"]
+        # email=request.POST["email"]
+        # phone=request.POST["phone"]
+        # message=request.POST["message"]
+        # user_id=request.POST["user_id"]
 
+    
+        # teams = Team.objects.order_by("-hire_date")
+        # context = {"teams": teams}
+        
+
+        # contact=Contact(name=name,email=email,phone=phone,user_id=user_id)
+        # contact.save()
+
+        # messages.success(request,"Your Inquiry has been submitted")
+        # return redirect("posts"/+post_id)
+    return render(request,"contact/contact.html")
 def Contribution(request):
     # import requests as req
 

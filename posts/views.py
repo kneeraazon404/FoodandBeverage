@@ -7,7 +7,7 @@ from .models import Post
 
 def posts(request):
     postss = Post.objects.order_by("-post_date")
-    paginator = Paginator(postss, 3)
+    paginator = Paginator(postss, 6)
     page_number = request.GET.get("page")
     paged_posts = paginator.get_page(page_number)
     context = {"posts": paged_posts}

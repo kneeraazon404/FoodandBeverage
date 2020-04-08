@@ -7,7 +7,7 @@
 {% endblock%}
 
 {% block content%}
-<section id="showcase-inner" class="py-5 text-white">
+<section id="showcase-inner " class="py-5 text-white bg-dark">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
@@ -29,7 +29,7 @@
         <li class="breadcrumb-item">
           <a href="{%url 'home'%}"> <i class="fas fa-home"></i> Home</a>
         </li>
-        <li class="breadcrumb-item active">About</li>
+        <li class="breadcrumb-item ">About</li>
       </ol>
     </nav>
   </div>
@@ -39,13 +39,21 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>We Serve the best food in town</h2>
-        <p class="lead">
+        <h2 class="text-uppercase ml-3">We Serve the best food in town</h2>
+        <b><p class="lead mr-2 ml-3">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
           pariatur!
-        </p>
-        <img src="static/img/first.jpg" alt="" />
-        <p class="mt-4">
+        </p></b>
+        {%include "partials/_carousel.html"%}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+      
+        <p class="mt-4 mr-3 ml-3 text-justify">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
           esse officia repudiandae ad saepe ex, amet neque quod accusamus rem
           quia magnam magni dolorum facilis ullam minima perferendis?
@@ -53,45 +61,19 @@
           laborum molestias quia.
         </p>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="Seller of the month" />
-          <div class="card-body">
-            <h5 class="card-title">Recipe of the month</h5>
-            <h6 class="text-secondary">Buff momo</h6>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nesciunt amet, illo itaque similique repellat. content.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="Recipe of the month" />
-          <div class="card-body">
-            <h5 class="card-title">Recipe of the month</h5>
-            <h6 class="text-secondary">Buff momo</h6>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nesciunt amet, illo itaque similique repellat. content.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- Work -->
 <section id="work" class="bg-dark text-white text-center">
-  <h2 class="display-4">We Work For You</h2>
+  <h2 class="display-4 text-bold">We Want You to eat healthy and tasty :) </h2>
   <h4>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
     aperiam, unde aliquid at similique!
   </h4>
   <hr />
-  <a href="{% url 'posts' %}" class="btn btn-secondary text-white btn-lg">View Our Latest Releases</a>
+  <a href="{% url 'posts' %}" class="btn btn-info text-white btn-lg">View Our Latest Recipes</a>
 </section>
 
 <!-- Team -->
@@ -104,7 +86,7 @@
       {%for Team in teams%}
       <div class="col-md-4">
 
-        <img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
+        <img src="{{Team.photo.url}}" alt="" class="rounded mb-3" />
         <h4>{{Team.name}}</h4>
         <p class="text-success">
           <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}

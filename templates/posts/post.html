@@ -9,9 +9,9 @@
 {% endblock%}
 {% block content %}
 
-<section id="showcase-inner" class="py-5 text-white">
+<section id="showcase-inner " class="py-5  bg-dark text-light">
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center ">
             <div class="col-md-12">
                 <h1 class="display-4">{{post.title}}</h1>
                 <p class="lead">
@@ -32,7 +32,7 @@
                 <li class="breadcrumb-item">
                     <a href="{% url 'posts'%}">Latest Releases</a>
                 </li>
-                <li class="breadcrumb-item active">{{post.title}}</li>
+                <li class="breadcrumb-item ">{{post.title}}</li>
             </ol>
         </nav>
     </div>
@@ -47,13 +47,13 @@
             <div class="col-md-8">
                 <div class="embed-responsive embed-responsive-16by9">
                     {% video post.video as my %}
-                    <iframe class="embed-responsive-item" src="{{ my.url }}"></iframe>
+                    <iframe class="embed-responsive-item mb-2 mr-2 ml-2 mt-2" src="{{ my.url }}"></iframe>
                     {% endvideo %}
                   </div>
-
+<hr>
                 <!-- Description -->
                 <div class="row mb-5">
-                    <div class="col-md-12">
+                    <div class="col-md-12 text-justify mb-2 mr-1 ml-1 mt-2" >
                         {{post.description}}
                     </div>
                 </div>
@@ -61,13 +61,13 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-3">
-                    <img class="card-img-top" src="{% static 'img/nirajan.jpg'%}" alt="Seller of the month">
+                    <img class="card-img-top" src="{% static 'img/pradip.jpg'%}" alt="Seller of the month">
                     <div class="card-body">
-                        <h5 class="card-title">Property Realtor</h5>
-                        <h6 class="text-secondary">Kyle Brown</h6>
+                        <h5 class="card-title">Dilip Kumar Karki</h5>
+                        <h6 class="text-secondary"> Master Chef</h6>
                     </div>
                 </div>
-                <button class="btn-primary btn-block btn-lg" data-toggle="modal"
+                <button class="btn-dark btn-block btn-lg" data-toggle="modal"
                     data-target="#inquiryModal">Contact</button>
             </div>
         </div>

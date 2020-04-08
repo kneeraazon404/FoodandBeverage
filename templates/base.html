@@ -10,14 +10,14 @@
       href="{% static 'img/favicon.ico'%}"
       type="image/x-icon"
     />
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href=" {% static 'css/all.css' %}" />
     <!-- Bootstrap -->
     <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %} " />
     <!-- Custom -->
     <link rel="stylesheet" href=" {% static 'css/style.css' %} " />
-    <!-- LIGHTBOX -->
-    <link rel="stylesheet" href=" {% static 'css/lightbox.min.css' %}" />
+
 
     <title>Food and Beverage {% block title %} {% endblock%}</title>
   </head>
@@ -27,6 +27,7 @@
     {% include "partials/_topbar.html" %}
     <!-- Nav bar -->
     {% include "partials/_navbar.html"%} {% block content %} {% endblock %}
+
     <!-- Footer -->
     {% include "partials/_footer.html" %}
 

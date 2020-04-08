@@ -12,7 +12,7 @@
 <!-- Team -->
 <section id="team" class="py-5">
     <div class="container">
-      <h2 class="text-center">Our Team</h2>
+      <h2 class="text-center">How Can we Help You?</h2>
       <hr>
       <div class="row text-center">
         {% if teams %}
@@ -27,6 +27,9 @@
           <hr />
           <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
           <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
+          <p class="lead text-justify">Lorem ipsum dolor sit, amet consectetur  sequuntur aspernatur laudantium molestiae quam.</p>
+          <div><button class="btn-dark btn-block btn-lg" data-toggle="modal"
+            data-target="#inquiryModal">Message</button></div>
         </div>
         {% endfor %}
         {% else %}
@@ -39,6 +42,7 @@
     </div>
   </section>
 {%include "partials/_message.html"%}
+
 <!-- Inquiry Modal -->
 <div class="modal fade" id="inquiryModal" role="dialog">
     <div class="modal-dialog">
@@ -88,7 +92,5 @@
         </div>
     </div>
 </div>
-<div class="col-md-12">
-    <h1> here we put the necessary notice and why and what should be inquired</h1>
-</div>
+
 {% endblock %}
