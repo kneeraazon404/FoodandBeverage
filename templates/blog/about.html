@@ -1,20 +1,23 @@
 {% extends 'base.html'%}
-
-{% load static%}
-
-{% block title %}
-| About Us
-{% endblock%}
-
-{% block content%}
+ {% load static%} 
+ {% block title %} | About Us
+  {%endblock%}
+   {% block content%}
 <section id="showcase-inner " class="py-5 text-white bg-dark">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
-        <h1 class="display-4">About Food and Beverage Nepal</h1>
-        <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
+        <h1 class="display-4">About Food & Beverage Nepal</h1>
+        <p class="lead text-justify">
+          Our Project is all about inspiring cooks of all kinds of dishes from
+          all around the globe. We engage especially Nepali, Chinese,
+          Continental, Indian cuisine which is similar to world cuisine. We make
+          easy recipes so that anyone can learn to cook easily within some
+          minutes. If you enjoy what we are doing our videos, please do not
+          hesitate to give us feedback and if you want to learn all types of
+          dishes, do not forget to subscribe to our youtube channel. And share
+          our videos with your friends and relatives through social media you're
+          using, so that they can also learn to cook delicious food.
         </p>
       </div>
     </div>
@@ -25,11 +28,13 @@
 <section id="bc" class="mt-3">
   <div class="container">
     <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
+      <ol class="breadcrumb text-dark">
         <li class="breadcrumb-item">
-          <a href="{%url 'home'%}"> <i class="fas fa-home"></i> Home</a>
+          <a href="{%url 'home'%}" class="text-dark">
+            <i class="fas fa-home"></i> Home</a
+          >
         </li>
-        <li class="breadcrumb-item ">About</li>
+        <li class="breadcrumb-item">About</li>
       </ol>
     </nav>
   </div>
@@ -39,20 +44,25 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-uppercase ml-3">We Serve the best food in town</h2>
-        <b><p class="lead mr-2 ml-3">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
-        </p></b>
+        <h2 class="ml-3">We Serve the Best Food in Town</h2>
+        <b>
+          <p class="lead mr-2 ml-3">
+            We are trying to make almost more and more kind of recipes in our
+            project so that anyone can cook and eat at their home.
+          </p>
+        </b>
         {%include "partials/_carousel.html"%}
-        
-      
+
         <p class="mt-4 mr-3 ml-3 text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          esse officia repudiandae ad saepe ex, amet neque quod accusamus rem
-          quia magnam magni dolorum facilis ullam minima perferendis?
-          Exercitationem at quaerat commodi id libero eveniet harum perferendis
-          laborum molestias quia.
+          Our Project is all about inspiring cooks of all kinds of dishes from
+          all around the globe. We engage especially Nepali, Chinese,
+          Continental, Indian cuisine which is similar to world cuisine. We make
+          easy recipes so that anyone can learn to cook easily within some
+          minutes. If you enjoy what we are doing our videos, please do not
+          hesitate to give us feedback and if you want to learn all types of
+          dishes, do not forget to subscribe to our youtube channel. And share
+          our videos with your friends and relatives through social media you're
+          using, so that they can also learn to cook delicious food.
         </p>
       </div>
     </div>
@@ -61,41 +71,40 @@
 
 <!-- Work -->
 <section id="work" class="bg-dark text-white text-center">
-  <h2 class="display-4 text-bold">We Want You to eat healthy and tasty :) </h2>
+  <h2 class="display-4 text-bold">Eat Healthy Eat, Tasty and Stay Happy :)</h2>
   <h4>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
-    aperiam, unde aliquid at similique!
+    Click below to discover all the recipes of ours to date
   </h4>
   <hr />
-  <a href="{% url 'posts' %}" class="btn btn-info text-white btn-lg">View Our Latest Recipes</a>
+  <a href="{% url 'posts' %}" class="btn btn-info text-white btn-lg"
+    >View Our Latest Recipes</a
+  >
 </section>
 
 <!-- Team -->
 <section id="team" class="py-5">
   <div class="container">
     <h2 class="text-center">Our Team</h2>
-    <hr>
+    <hr />
     <div class="row text-center">
-      {% if teams %}
-      {%for Team in teams%}
+      {% if teams %} {%for Team in teams%}
       <div class="col-md-4">
-
         <img src="{{Team.photo.url}}" alt="" class="rounded mb-3" />
+        <hr />
         <h4>{{Team.name}}</h4>
-        <p class="text-success">
+        <p class="text-info">
           <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
         </p>
-        <hr />
+
         <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
         <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
       </div>
-      {% endfor %}
-      {% else %}
+
+      {% endfor %} {% else %}
       <div class="col-md-12">
         <p>No team members avilable</p>
       </div>
       {% endif %}
-
     </div>
   </div>
 </section>

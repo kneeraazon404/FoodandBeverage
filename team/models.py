@@ -8,8 +8,8 @@ class Team(models.Model):
     position = models.CharField(max_length=20)
     phone = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=100)
+    description = models.TextField(max_length=1000, default="I Can do anything")
     hire_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
         return self.name
-

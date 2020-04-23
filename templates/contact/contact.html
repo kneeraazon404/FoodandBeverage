@@ -2,91 +2,108 @@
 
 {% load static%}
 
+
 {% block title %}
 | Contact
 {% endblock%}
 
 {% block content%}
 
+<section id="showcase-inner " class="py-5  bg-dark text-light">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-md-12">
+				<h1 class="display-5"></i>How Can we Help You?</i></h1>
+				<p class="lead">You can message any three of us for different help you need
+					</i></p>
 
-<!-- Team -->
-<section id="team" class="py-5">
-    <div class="container">
-      <h2 class="text-center">How Can we Help You?</h2>
-      <hr>
-      <div class="row text-center">
-        {% if teams %}
-        {%for Team in teams%}
-        <div class="col-md-4">
-  
-          <img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
-          <h4>{{Team.name}}</h4>
-          <p class="text-success">
-            <i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
-          </p>
-          <hr />
-          <p><i class="fas fa-phone"></i>{{Team.phone}}</p>
-          <p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
-          <p class="lead text-justify">Lorem ipsum dolor sit, amet consectetur  sequuntur aspernatur laudantium molestiae quam.</p>
-          <div><button class="btn-dark btn-block btn-lg" data-toggle="modal"
-            data-target="#inquiryModal">Message</button></div>
-        </div>
-        {% endfor %}
-        {% else %}
-        <div class="col-md-12">
-          <p>No team members avilable</p>
-        </div>
-        {% endif %}
-  
-      </div>
-    </div>
-  </section>
+			</div>
+		</div>
+	</div>
+</section>
+
 {%include "partials/_message.html"%}
 
+
+<!-- Team -->
+
+<section id="team" class="py-5">
+	<div class="container">
+		<h2 class="text-center">Our Team</h2>
+		<hr>
+		<div class="row text-center">
+			{% if teams %}
+			{%for Team in teams%}
+			<div class="col-md-4">
+
+				<img src="{{Team.photo.url}}" alt="" class="rounded-circle mb-3" />
+				<h4>{{Team.name}}</h4>
+				<p class="text-success">
+					<i class="fas fa-chief text-success mb-3"></i> {{Team.position}}
+				</p>
+				<hr />
+				<p><i class="fas fa-phone"></i>{{Team.phone}}</p>
+				<p><i class="fas fa-envelope-open"></i> {{Team.email}}</p>
+
+
+				<p> {{Team.description}}</p>
+
+				<div>
+					<button class="btn-info btn-block btn-lg" data-toggle="modal" data-target="#inquiryModall">Message</button>
+				</div>
+			</div>
+			{% endfor %}
+			{% else %}
+			<div class="col-md-12">
+				<p>No team members avilable</p>
+			</div>
+			{% endif %}
+
+		</div>
+	</div>
+
+</section>
+
+
+
 <!-- Inquiry Modal -->
-<div class="modal fade" id="inquiryModal" role="dialog">
+<div class="modal fade" id="inquiryModall" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span>&times;</span>
-                </button>
-            </div>
+           
             <div class="modal-body">
                 <form action="{% url 'contact' %}" method="POST">
                     {% csrf_token %}
                     {% if user.is_authenticated %}
-                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                    <input type="hidden" name="user_id" id="user_id" value="{{ user.id }}">
                     {% else %}
-                    <input type="hidden" name="user_id" value="0">
+					<input type="hidden" name="user_id" id="user_id" value="0">
+					<!-- <a href="{% url 'login'%}"></a> -->
                     {% endif %}
-                    <input type="hidden" name="team_email" value="{{ post.realtor.email }}">
-                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <input type="hidden" name="team_email"  id ="team_email" value="{{ Team.email }}">
                     <div class="form-group">
                         <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" name="name" class="form-control" {% if user.is_authenticated %}
+                        <input type="text" name="name" id="name" class="form-control" {% if user.is_authenticated %}
                             value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-form-label">Email:</label>
-                        <input type="email" name="email" class="form-control" {% if user.is_authenticated %}
+                        <input type="email" name="email" id="email" class="form-control" {% if user.is_authenticated %}
                             value="{{ user.email }}" {% endif %} required>
                     </div>
                     <div class="form-group">
                         <label for="phone" class="col-form-label">Phone:</label>
-                        <input type="text" name="phone" class="form-control">
+                        <input type="text" name="phone" id="phone" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="message" class="col-form-label">Message:</label>
-                        <textarea name="message" class="form-control"></textarea>
+                        <textarea name="message" id="message" class="form-control"></textarea>
                     </div>
                     <hr>
-                    <input type="submit" value="Send" class="btn btn-block btn-secondary">
+                    <input type="submit" value="Send" class="btn btn-block btn-info">
                 </form>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

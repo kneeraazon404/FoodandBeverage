@@ -4,8 +4,8 @@
 
 <nav class="navbar navbar-expand-sm bg-info navbar-light">
   <div class="container">
-    <a class="navbar-brand" src="{% static 'img/logo.png' %}" href="{% url 'home'%}">
-      F&B
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'img/logo.png' %}" class="logo" alt="">
     </a>
     <!-- static/img/logo.png -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
@@ -28,14 +28,17 @@
       </ul>
 
       <ul class="navbar-nav ml-auto">
-
+        <li {% if "login" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
+          {% endif %}>
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
         <li {% if "contact" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
           {% endif %}>
           <a class="nav-link" href="{% url 'contact' %}">Contact</a>
         </li>
-        <li {% if "/contact/contribution" ==  request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
-          {% endif %}>
-          <a class="nav-link" href="{%url 'contribution'%}">contribution</a>
+        <li {% if "/contact/contribution" ==  request.path %} class="nav-item active  mr-3" {% else %}
+          class="nav-item   mr-3" {% endif %}>
+          <a class="nav-link" href="{%url 'contribution'%}">Contribution</a>
         </li>
 
       </ul>

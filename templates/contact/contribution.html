@@ -1,92 +1,111 @@
 {% extends "base.html" %}
 {% load static%}
+
 {% block content %}
 
 <section id="showcase-inner " class="py-5  bg-dark text-light">
     <div class="container">
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h1 class="display-5"></i>You can help us grow this chennel by doing the following</i></h1>
-          <p class="lead">Too lazy to cook, yet crave the most
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-5"></i>You can help us grow this chennel by doing the following</i></h1>
+                <!-- <p class="lead">Too lazy to cook, yet crave the most
               delicious food?
               we know how you feel, so here are the awesome receipes on various items, just go through them and eat
               awesome food items at your home made by you own hands
-            </i></p>
-  
-        </div>
-      </div>
-    </div>
-  </section>
+            </i></p> -->
 
-<div class="container" >
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="login" class="bg-light py-5"></section>
+<div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <h1 class="display-4">This is how you can help us</h1>
+        <div class="col-md-12">
+            <h1 class="display-5 text-center">This is how you can help us</h1>
             <hr>
-            <h5 class="text-justify mr-1 ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt et repudiandae accusantium sit temporibus earum unde omnis quibusdam rem iste odit ut mollitia debitis, quae ducimus architecto harum nemo officiis veritatis! Mollitia nemo enim a, distinctio repellat excepturi sapiente quas dolorum ad possimus iste vel illum minima assumenda odit aut.</h5>
+            <h5 class="text-justify mr-1 ml-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt et
+                repudiandae accusantium sit temporibus earum unde omnis quibusdam rem iste odit ut mollitia debitis,
+                quae ducimus architecto harum nemo officiis veritatis! Mollitia nemo enim a, distinctio repellat
+                excepturi sapiente quas dolorum ad possimus iste vel illum minima assumenda odit aut.</h5>
         </div>
-        <div class="col-md-4 mt-2">
-            <div class="card mb-3">
-    <form action="https://uat.esewa.com.np/epay/main" method="POST">
- <div>
-<h5 class="text-center text-bold mr-1 ml">Make Conntribution through Esewa</h5>
-<hr>
-     <h6 class="text-center text-dark mr-1 ml">Amount </h6>
-    <input class=" text-dark mr-1 ml-5" value="100" name="tAmt" type="">
-</div>
-<div>
-    <h3> </h3>
-    <input value="90" name="amt" type="hidden">
-</div>
-<div>
-    <h3> </h3>
-    <input value="5" name="txAmt" type="hidden">
-</div>
-<div>
-    <h3> </h3>
-    <input value="2" name="psc" type="hidden">
-</div>
-<div>
-    <h3> </h3>
-    <input value="3" name="pdc" type="hidden">
-</div>
-<div>
-    <h6 class="text-center text-dark mr-1 ml"> Payment type </h6></<h5>
-    <input class=" text-dark mr-1 ml-5 mb-2 "  value=" esewa payment" name="scd" type="">
-</div>
-<input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" type="hidden">
-<input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su">
-<input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu">
-
-
-<div>
-    <input class="btn btn-dark btn-block" value="Submit" type="submit">
-</div>
-
-
-   
-    
-    
-    
-   
-    </form>
-    
-</div> 
-</div>
+       
     </div>
-    
+
 </div>
+</section>
+
+<section id="login" class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h4>
+                            <i class="fas fa-help-in-alt"></i> Contribution</h4>
+                    </div>
+                    <div class="card-body">
+                        {% include 'partials/_message.html'%}
+                        <form action="https://uat.esewa.com.np/epay/main" method="POST">
+                            <div>
+                                <h5 class="text-center text-bold mr-1 ml">Make Conntribution through Esewa</h5>
+                                <hr>
+                                <h6 class="text-center text-dark ">Amount </h6>
+                                <input class="form-control" value="100" name="tAmt" id="tAmt" type="">
+                            </div>
+                            <div>
+                                <h3> </h3>
+                                <input value="90" name="amt" id="amt" type="hidden">
+                            </div>
+                            <div>
+                                <h3> </h3>
+                                <input value="5" name="txAmt" id="txAmt" type="hidden">
+                            </div>
+                            <div>
+                                <h3> </h3>
+                                <input value="2" name="psc" id="psc" type="hidden">
+                            </div>
+                            <div>
+                                <h3> </h3>
+                                <input value="3" name="pdc" id="pdc" type="hidden">
+                            </div>
+                            <div>
+                                
+                                <h6 class="text-center text-dark mr-1 ml"> Payment type </h6>
+                                </<h5>
+                                <input class=" text-dark mr-10 ml-10 mb-2 form-control" value=" esewa payment" name="scd" id="scd" type="">
+                            </div>
+                            <input value="ee2c3ca1-696b-4cc5-a6be-2c40d929d453" name="pid" id="pid" type="hidden">
+                            <input value="http://merchant.com.np/page/esewa_payment_success?q=su" type="hidden" name="su"
+                                id="su">
+                            <input value="http://merchant.com.np/page/esewa_payment_failed?q=fu" type="hidden" name="fu"
+                                id="fu">
+        
+        
+                            <div>
+                                <input class="btn btn-info btn-block" value="Submit" type="submit">
+                            </div>
+        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="work" class="bg-dark text-light text-center mb-5">
     <h2 class="display-5 text-bold">If someone tells you to stop eating,
-         Eat them too :) </h2>
-    <hr>
+        Eat them too :) </h2>
+
     <h5 class="lead">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
-      aperiam, unde aliquid at similique!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
+        aperiam, unde aliquid at similique!
     </h5>
     <hr>
 
     <a href="{% url 'posts' %}" class="btn btn-info text-white btn-lg ">View Our Latest Recipes</a>
-  </section>
+</section>
 
 {% endblock%}
