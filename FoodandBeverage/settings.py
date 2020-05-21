@@ -10,6 +10,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
 INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "contact.apps.ContactConfig",
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "embed_video",
     "django.contrib.humanize",
+    "stripe",
 ]
 
 MIDDLEWARE = [
