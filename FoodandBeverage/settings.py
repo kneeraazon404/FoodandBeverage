@@ -25,8 +25,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "embed_video",
     "django.contrib.humanize",
-    "stripe",
+    "payments.apps.PaymentsConfig",
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -97,6 +98,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "FoodandBeverage/static")]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
+
+STRIPE_SECRET_KEY = "pk_test_ibLPwjOu7aM4TKeqqfN4eueS003iF2236l"
+STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwKVW0050hW0JEJ"
 
 from django.contrib.messages import constants as messages
 

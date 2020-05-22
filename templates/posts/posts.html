@@ -2,7 +2,6 @@
 {% load embed_video_tags %}
 {% load static %}
 
-
 {% block title %}
 | Latest Releases
 {% endblock%}
@@ -35,9 +34,13 @@
         <li class="breadcrumb-item active text-dark">Latest Recipes</li>
         <form class="form-inline d-flex justify-content-center md-form form-sm mt-0 ml-auto">
           <i class="fas fa-search ml-auto" aria-hidden="true"></i>
-          <input class="form-control form-control-sm ml-3 w-75" href="{% url 'search'%}" type="text"
-            placeholder="Search" aria-label="Search">
-
+          <select name="price" class="form-control">
+                                <option selected="true" disabled="disabled">select by title </option>
+                                {% for key,value in titles %}
+                                <option value="{{ key }}" {% if key == title %} selected {% endif %}>{{ value }}
+                                </option>
+                                {% endfor %}
+                            </select>
         </form>
       </ol>
     </nav>

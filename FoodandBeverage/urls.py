@@ -11,4 +11,5 @@ urlpatterns = [
     path("posts/", include("posts.urls")),
     path("users/", include("users.urls")),
     path("team/", include("team.urls")),
+    path("payments/", include("payments.urls")),  # new
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

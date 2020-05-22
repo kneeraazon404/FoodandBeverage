@@ -66,6 +66,23 @@ def ContactForm(request):
     return render(request, "contact/contact.html", context)
 
 
+from django.conf import settings  # new
+from django.views.generic.base import TemplateView
+
+
+from django.conf import settings  # new
+from django.views.generic.base import TemplateView
+
+
+class HomePageView(TemplateView):
+    template_name = "home.html"
+
+    def get_context_data(self, **kwargs):  # new
+        context = super().get_context_data(**kwargs)
+        context["key"] = settings.STRIPE_PUBLISHABLE_KEY
+        return context
+
+
 def Contribution(request):
     # import requests as req
 

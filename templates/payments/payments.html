@@ -106,14 +106,16 @@
                     </div>
                     <div class="card-body">
                         {% include 'partials/_message.html'%}
-                        <h2>make Contribution of  $5.00</h2>
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="{{ key }}"
-    data-description="A Django Charge"
-    data-amount="500"
-    data-locale="auto">
-</script>
-
+                       
+<h2>Buy for $5.00</h2>
+<form action="{% url 'charge' %}" method="post">
+  {% csrf_token %}
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{ key }}"
+          data-description="A Django Charge"
+          data-amount="500"
+          data-locale="auto"></script>
+</form>
 <form action="/charge" method="post" id="payment-form">
   <div class="form-row inline">
     <div class="col">
