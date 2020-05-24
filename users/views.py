@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from contact.models import Contact
 
 
 def register(request):
@@ -11,8 +12,9 @@ def register(request):
         email = request.POST["email"]
         password = request.POST["password"]
         password2 = request.POST["password2"]
-
+        #      Check if passwords match
         if password == password2:
+            # Check username
             if User.objects.filter(username=username).exists():
                 messages.error(request, "that user name is already taken")
                 return redirect("register")
@@ -52,10 +54,23 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, "logged in")
-            return redirect("contact")
+            return redirect("dashboard")
+        else:
+            messages.error(request, "Invalid credentials")
+            return redirect("login")
     else:
         return render(request, "users/login.html")
 
 
 def logout(request):
+    if request.method == "POST":
+        auth.logout(request)
+        messages.success(request, "You are now logged out")
+        return redirect("home")
+
+
+def dashboard(request):
+    user_contacts = Contact.objects.order_by("-contact_date").filter(
+        user_id=request.user.id
+    )
     return redirect("home")

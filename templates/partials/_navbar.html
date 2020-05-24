@@ -27,21 +27,73 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto">
-        <li {% if "login" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
-          {% endif %}>
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
-        </li>
-        <li {% if "contact" in request.path %} class="nav-item active  mr-3" {% else %} class="nav-item   mr-3"
-          {% endif %}>
-          <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-        </li>
-        <li {% if "/contact/contribution" ==  request.path %} class="nav-item active  mr-3" {% else %}
-          class="nav-item   mr-3" {% endif %}>
-          <a class="nav-link" href="{%url 'payments'%}">Contribution</a>
-        </li>
+     <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            
+            <li class="nav-item mr-3">
+              <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+              <form action="{% url 'logout' %}" method="POST" id="logout">
+                {% csrf_token %}
+                <input type="hidden">
+              </form>
+            </li>
+            <li
+            {% if 'dashboard' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'contact' %}">
+                 <i class="fas fa-envelope-square"></i> Contact</a>
+            </li>
+            <li
+            {% if 'dashboard' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'payments' %}">
+               <i class="fas fa-donate"></i> Contribute</a>
+            </li>
+          {% else %}
+            <li
+            {% if 'login' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'login' %}">
+                <i class="fas fa-sign-in-alt"></i>
 
-      </ul>
+                Login</a>
+
+            </li>
+             <li
+            {% if 'contact' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'contact' %}">
+                <i class="fas fa-envelope-square"></i> Contact</a>
+            </li>
+             <li
+            {% if 'Contribution' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'payments' %}">
+                <i class="fas fa-donate"></i> Contribute</a>
+            </li>
+          {% endif %}
     </div>
   </div>
 </nav>
@@ -52,3 +104,5 @@
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  
