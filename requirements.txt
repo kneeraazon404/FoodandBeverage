@@ -151,6 +151,8 @@ pycparser==2.19
 Pygments==2.6.1
 PyJWT==1.6.4
 pylint==2.5.2
+pylint-django==2.0.15
+pylint-plugin-utils==0.6
 pyparsing==2.4.7
 pyrsistent==0.16.0
 python-dateutil==2.7.5
