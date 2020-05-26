@@ -44,15 +44,15 @@ def ContactForm(request):
         contact.save()
 
         # Send email
-        send_mail(
-            "Recipe post Inquiry",
-            "There has been an inquiry for "
-            + post
-            + ". Sign into the admin panel for more info",
-            "thisismyfakeacount2020@gmail.com",
-            ["kneeraazon@gmail.com", "karkinriajan1999@gmail.com"],
-            fail_silently=False,
-        )
+        # send_mail(
+        #     "Recipe post Inquiry",
+        #     "There has been an inquiry for "
+        #     + post
+        #     + ". Sign into the admin panel for more info",
+        #     "thisismyfakeacount2020@gmail.com",
+        #     ["kneeraazon@gmail.com", "karkinriajan1999@gmail.com"],
+        #     fail_silently=False,
+        # )
 
         messages.success(
             request,
