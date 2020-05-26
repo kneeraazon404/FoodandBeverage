@@ -3,12 +3,12 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = "3c5#!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
+SECRET_KEY = "3c5!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
 
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["foodandbeverage.azurewebsites.net"]
+ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
