@@ -112,3 +112,8 @@ STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwKVW0050hW0JEJ"
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {messages.ERROR: "danger"}
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
