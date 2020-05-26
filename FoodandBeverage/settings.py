@@ -3,14 +3,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = "3c5!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
-
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "contact.apps.ContactConfig",
@@ -60,16 +52,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fooddb",
-        "USER": "postgres",
-        "PASSWORD": "karki582465",
-        "HOST": "localhost",
-    }
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
@@ -99,12 +81,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get("EMAIl")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 STRIPE_SECRET_KEY = "pk_test_ibLPwjOu7aM4TKeqqfN4eueS003iF2236l"
 STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwKVW0050hW0JEJ"
