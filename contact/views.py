@@ -4,10 +4,11 @@ import requests as req
 from django.contrib import messages
 from django.core.mail import send_mail
 from team.models import Team
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
+@login_required()
 def ContactForm(request):
     if request.method == "POST":
         post_id = request.POST.get("post_id", 1)

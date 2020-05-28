@@ -99,6 +99,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
 
+LOGIN_URL = "login"
+
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_HOST = "smtp.gmail.com"
 # EMAIL_PORT = 587
@@ -106,6 +108,9 @@ MEDIA_URL = "/media/"
 # EMAIL_HOST_USER = os.environ.get("EMAIl")
 # EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
+
+STRIPE_SECRET_KEY = "pk_test_ibLPwjOu7aM4TKeqqfN4eueS3iF2236l"
+STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwK050hW0JEJ"
 
 from django.contrib.messages import constants as messages
 
