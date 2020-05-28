@@ -1,0 +1,26 @@
+
+SECRET_KEY = "3c5!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
+
+
+DEBUG = True
+
+ALLOWED_HOSTS = ['139.59.63.170']
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "food_prod",
+        "USER": "dbadmin",
+        "PASSWORD": "karki582465",
+        "HOS
+
+T": "localhost",
+    }
+}
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "karkinirajan1999@gmail.com"
+EMAIL_HOST_PASSWORD = "fake582465"
