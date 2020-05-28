@@ -64,7 +64,3 @@ def ContactForm(request):
     context = {"teams": teams}
 
     return render(request, "contact/contact.html", context)
-
-
-from django.conf import settings  # new
-from django.views.generic.base import TemplateView
