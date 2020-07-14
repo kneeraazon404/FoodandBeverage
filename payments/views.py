@@ -1,10 +1,10 @@
 import stripe  # new
-
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.shortcuts import render  # new
 
-stripe.api_key = settings.STRIPE_SECRET_KEY  # new
+
+# stripe.api_key = settings.STRIPE_SECRET_KEY  # new
 
 
 class HomePageView(TemplateView):
@@ -37,6 +37,7 @@ def payments(request):
     # return render(request, "contact/payments.html", context)
 
 
+@login_required()
 def stripe(request):
     template_name = "payments.html"
 

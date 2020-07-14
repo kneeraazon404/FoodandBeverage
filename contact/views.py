@@ -8,6 +8,7 @@ from team.models import Team
 # Create your views here.
 
 
+@login_required()
 def ContactForm(request):
     if request.method == "POST":
         post_id = request.POST.get("post_id", 1)
