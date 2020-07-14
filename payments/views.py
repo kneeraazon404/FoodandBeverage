@@ -2,9 +2,12 @@ import stripe  # new
 from django.conf import settings
 from django.views.generic.base import TemplateView
 from django.shortcuts import render  # new
+from django.contrib.auth.decorators import login_required
+
 
 
 # stripe.api_key = settings.STRIPE_SECRET_KEY  # new
+
 
 
 class HomePageView(TemplateView):
@@ -16,6 +19,7 @@ class HomePageView(TemplateView):
         return context
 
 
+@login_required()
 def payments(request):
     # import requests as req
 

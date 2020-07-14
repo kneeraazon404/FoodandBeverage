@@ -4,7 +4,7 @@ import requests as req
 from django.contrib import messages
 from django.core.mail import send_mail
 from team.models import Team
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -65,7 +65,3 @@ def ContactForm(request):
     context = {"teams": teams}
 
     return render(request, "contact/contact.html", context)
-
-
-from django.conf import settings  # new
-from django.views.generic.base import TemplateView
