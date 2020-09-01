@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -123,3 +124,6 @@ STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwK050hW0JEJ"
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {messages.ERROR: "danger"}
+
+
+django_heroku.settings(locals())
