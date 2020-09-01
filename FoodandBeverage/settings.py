@@ -8,7 +8,7 @@ SECRET_KEY = "3c5!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["foodandbeveragenepal.herokuapp.com"]
 
 
 INSTALLED_APPS = [
