@@ -1,4 +1,3 @@
-
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
 from .models import Post
@@ -9,8 +8,8 @@ def posts(request):
     paginator = Paginator(postss, 6)
     page_number = request.GET.get("page")
     paged_posts = paginator.get_page(page_number)
-    titles=Post.title
-    context = {"posts": paged_posts,"title":titles}
+    titles = Post.title
+    context = {"posts": paged_posts, "title": titles}
     return render(request, "posts/posts.html", context)
 
 
