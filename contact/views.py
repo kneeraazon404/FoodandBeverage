@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from team.models import Team
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 
