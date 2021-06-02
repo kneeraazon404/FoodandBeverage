@@ -39,6 +39,6 @@ stripe==2.48.0
 toml==0.10.1
 typed-ast==1.4.1
 typing-extensions==3.7.4.3
-urllib3==1.24.3
+urllib3==1.26.5
 whitenoise==5.1.0
 wrapt==1.12.1
