@@ -59,17 +59,22 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
-
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "fooddb",
-        "USER": "postgres",
-        "PASSWORD": "karki582465",
-        "HOST": "localhost",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'foodandbeverage',
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "fooddb",
+#         "USER": "postgres",
+#         "PASSWORD": "karki582465",
+#         "HOST": "localhost",
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
