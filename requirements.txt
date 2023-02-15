@@ -2,7 +2,7 @@ asgiref==3.6.0
 certifi==2022.12.7
 charset-normalizer==2.1.1
 dj-database-url==1.2.0
-Django==4.1.4
+Django==4.1.7
 django-embed-video==1.4.8
 django-heroku==0.3.1
 django-jazzmin==2.6.0
