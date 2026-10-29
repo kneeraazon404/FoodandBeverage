@@ -1,0 +1,33 @@
+[project]
+name = "foodandbeverage"
+version = "1.0.0"
+description = "Django site for a food and beverage business: posts with embedded videos, team, contact inquiries, and Stripe payments page."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { file = "LICENSE" }
+dependencies = [
+    "django>=5.2,<5.3",
+    "django-jazzmin>=3.0",
+    "django-embed-video>=1.4",
+    "pillow>=13,<14",
+    "whitenoise>=6.12,<7",
+    "dj-database-url>=3.1,<4",
+    "gunicorn>=26,<27",
+    "psycopg[binary]>=3.3,<4",
+    "requests>=2.32",
+    "stripe>=11",
+]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-django>=4.9", "ruff>=0.8"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "FoodandBeverage.settings_test"
+python_files = ["tests.py", "test_*.py", "tests/test_*.py"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["FoodandBeverage/static", "*/migrations"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "DJ"]

@@ -1,5 +1,6 @@
 from django.db import models
-from datetime import datetime
+from django.utils import timezone
+
 
 # Create your models here.
 class Team(models.Model):
@@ -9,7 +10,7 @@ class Team(models.Model):
     phone = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=100)
     description = models.TextField(max_length=1000, default="I Can do anything")
-    hire_date = models.DateTimeField(default=datetime.now, blank=True)
+    hire_date = models.DateTimeField(default=timezone.now, blank=True)
 
     def __str__(self):
         return self.name

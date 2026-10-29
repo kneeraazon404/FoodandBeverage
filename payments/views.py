@@ -1,8 +1,7 @@
 from django.conf import settings
-from django.views.generic.base import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-
+from django.views.generic.base import TemplateView
 
 
 class HomePageView(TemplateView):
