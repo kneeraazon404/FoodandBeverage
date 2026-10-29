@@ -38,7 +38,16 @@ This project provides a platform for exploring various food and beverage options
    ```bash
    cd FoodandBeverage
    ```
-3. Open the project in your preferred IDE or text editor and serve it locally.
+3. Create and activate a virtual environment, then install `requirements.txt`.
+4. Set `DJANGO_SECRET_KEY` to a unique secret. For local development, set
+   `DJANGO_DEBUG=true` and `DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1`.
+5. Set `DATABASE_URL` for PostgreSQL deployments; without it, the app uses a
+   local SQLite database. Set `STRIPE_SECRET_KEY` and
+   `STRIPE_PUBLISHABLE_KEY` only when configuring Stripe.
+6. Run `python manage.py migrate` and `python manage.py runserver`.
+
+Production must use `DJANGO_DEBUG=false` and set `DJANGO_ALLOWED_HOSTS` to the
+actual hostnames. Do not commit credentials or local settings backups.
 
 ## License
 

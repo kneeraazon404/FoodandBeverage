@@ -1,16 +1,20 @@
 import os
 import django_heroku
+import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = "3c5!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+if not SECRET_KEY:
+    raise ImproperlyConfigured("Set DJANGO_SECRET_KEY in the environment before starting Django.")
 
 
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "false").lower() in {"1", "true", "yes"}
 
-ALLOWED_HOSTS = ["foodandbeveragenepal.herokuapp.com"]
-DEFAULT_AUTO_FIELD="django.db.models.BigAutoField"
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if host.strip()]
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INSTALLED_APPS = [
     "jazzmin",
@@ -33,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -61,21 +66,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'foodandbeverage',
-    }
+    "default": dj_database_url.config(
+        default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}",
+        conn_max_age=600,
+    )
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "fooddb",
-#         "USER": "postgres",
-#         "PASSWORD": "karki582465",
-#         "HOST": "localhost",
-#     }
-# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -124,8 +119,8 @@ LOGIN_URL = "login"
 # EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 
 
-STRIPE_SECRET_KEY = "pk_test_ibLPwjOu7aM4TKeqqfN4eueS3iF2236l"
-STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwK050hW0JEJ"
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
 
 from django.contrib.messages import constants as messages
 
