@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from team.models import Team
+
 from posts.models import Post
+from team.models import Team
+
 
 # Create your views here.
 def index(request):

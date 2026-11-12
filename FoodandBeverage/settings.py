@@ -1,16 +1,24 @@
 import os
-import django_heroku
+
+import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = "3c5!dl+@)a9o0q(i3q%4e_ab%w#*unc@ut-y-%k+lm3j"
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+if not SECRET_KEY:
+    raise ImproperlyConfigured("Set DJANGO_SECRET_KEY in the environment before starting Django.")
 
 
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "false").lower() in {"1", "true", "yes"}
 
-ALLOWED_HOSTS = ["foodandbeveragenepal.herokuapp.com"]
-DEFAULT_AUTO_FIELD="django.db.models.BigAutoField"
+ALLOWED_HOSTS = [
+    host.strip()
+    for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+    if host.strip()
+]
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INSTALLED_APPS = [
     "jazzmin",
@@ -33,6 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -61,26 +70,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "FoodandBeverage.wsgi.application"
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'foodandbeverage',
-    }
+    "default": dj_database_url.config(
+        default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}",
+        conn_max_age=600,
+    )
 }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "fooddb",
-#         "USER": "postgres",
-#         "PASSWORD": "karki582465",
-#         "HOST": "localhost",
-#     }
-# }
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -91,8 +88,6 @@ LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 
 USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 
@@ -107,29 +102,42 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
+EMAIL_BACKEND = os.environ.get(
+    "DJANGO_EMAIL_BACKEND", "django.core.mail.backends.console.EmailBackend"
+)
+EMAIL_HOST = os.environ.get("DJANGO_EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = int(os.environ.get("DJANGO_EMAIL_PORT", "587"))
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get("EMAIl")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+# EMAIL / EMAIL_PASSWORD are the original variable names (note the historical "EMAIl" typo
+# is accepted as a fallback so existing deployments keep working).
+EMAIL_HOST_USER = os.environ.get("EMAIL") or os.environ.get("EMAIl", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD", "")
 
 LOGIN_URL = "login"
 
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ.get("EMAIl")
-# EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "")
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY", "")
 
-
-STRIPE_SECRET_KEY = "pk_test_ibLPwjOu7aM4TKeqqfN4eueS3iF2236l"
-STRIPE_PUBLISHABLE_KEY = "sk_test_3RTuvScWNJm0dVwjvW3LwK050hW0JEJ"
-
-from django.contrib.messages import constants as messages
+from django.contrib.messages import constants as messages  # noqa: E402
 
 MESSAGE_TAGS = {messages.ERROR: "danger"}
 
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
+}
 
-django_heroku.settings(locals())
+CSRF_TRUSTED_ORIGINS = [
+    o.strip() for o in os.environ.get("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()
+]
+
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = os.environ.get("DJANGO_SECURE_SSL_REDIRECT", "true").lower() in {
+        "1",
+        "true",
+        "yes",
+    }
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_HSTS_SECONDS", "3600"))
