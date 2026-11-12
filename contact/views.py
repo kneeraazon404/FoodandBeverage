@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
-from .models import Contact
-import requests as req
 from django.contrib import messages
-from django.core.mail import send_mail
-from team.models import Team
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+
+from team.models import Team
+
+from .models import Contact
 
 # Create your views here.
 
@@ -24,13 +24,9 @@ def ContactForm(request):
         # Check if user has made inquiry already
         if request.user.is_authenticated:
             user_id = request.user.id
-            has_contacted = Contact.objects.all().filter(
-                post_id=post_id, user_id=user_id
-            )
+            has_contacted = Contact.objects.all().filter(post_id=post_id, user_id=user_id)
             if has_contacted:
-                messages.error(
-                    request, "You have already made an inquiry for this post"
-                )
+                messages.error(request, "You have already made an inquiry for this post")
                 return redirect("/contact/contact")
 
         contact = Contact(
